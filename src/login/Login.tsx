@@ -2,13 +2,16 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import { login } from "../redux/regLogSlice";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
 
-const Login = () => {
-  const dispatch = useDispatch();
+import { useNavigate } from "react-router";
+import { useAppDispatch } from "../redux/hooks/hooks";
+import type { LogDataType } from "../redux/regLogSlice";
+import type React from "react";
+
+const Login: React.FC = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const initialValues = {
+  const initialValues: LogDataType = {
     email: "",
     password: "",
   };
@@ -23,10 +26,11 @@ const Login = () => {
       .required("Введите пароль"),
   });
 
-  const handleSubmit = async (data) => {
+  const handleSubmit = async (data: LogDataType) => {
     try {
       await dispatch(login(data)).unwrap();
       navigate("/");
+      console.log(data);
     } catch (error) {
       console.log(error);
     }

@@ -8,7 +8,7 @@ import { selectEditText } from "./redux/editTextSlice";
 import { selectEditTaskId } from "./redux/editSlice";
 import { selectErrorTaskId } from "./redux/editTaskErrorSlice";
 import type { KeyboardEvent } from "react";
-import type { MouseEvent } from "react";
+
 import { useAppDispatch, useAppSelector } from "./redux/hooks/hooks";
 
 type PropsType = {
@@ -46,7 +46,7 @@ const Task: React.FC<PropsType> = ({ item }) => {
 
   useEffect(() => {
     if (!isEdit) return;
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: globalThis.MouseEvent) => {
       if (
         inputRef.current &&
         !inputRef.current.contains(event.target as Node)

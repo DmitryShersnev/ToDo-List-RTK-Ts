@@ -1,11 +1,14 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { registration } from "../redux/regLogSlice";
-import { useDispatch } from "react-redux";
 
-const Registration = () => {
-  const dispatch = useDispatch();
-  const initialValues = {
+import { useAppDispatch } from "../redux/hooks/hooks";
+import type { RegDataType } from "../redux/regLogSlice";
+
+const Registration: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  const initialValues: RegDataType = {
     username: "",
     email: "",
     password: "",
@@ -29,7 +32,9 @@ const Registration = () => {
       .required("Введите ваш возраст"),
   });
 
-  const handleSubmit = (data) => {
+  const handleSubmit = (data: RegDataType) => {
+    console.log(data);
+
     dispatch(registration(data));
   };
   return (

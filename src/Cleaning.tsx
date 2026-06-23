@@ -1,7 +1,7 @@
 import type React from "react";
 import { deleteDoneTasks } from "./redux/tasksSlice";
 
-import { useAppDispatch } from "./hooks/hooks";
+import { useAppDispatch } from "./redux/hooks/hooks";
 
 type PropsType = {
   countOfActive: number;

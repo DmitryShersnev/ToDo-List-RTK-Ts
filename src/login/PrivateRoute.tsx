@@ -1,7 +1,7 @@
 import { Outlet, Navigate } from "react-router";
 
 const PrivateRoute = () => {
-  const token = localStorage.getItem("token");
+  const token: string | null = localStorage.getItem("token");
   if (!token) {
     return <Navigate to="/reglog" replace />;
   }

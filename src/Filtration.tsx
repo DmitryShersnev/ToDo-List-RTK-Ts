@@ -1,6 +1,6 @@
 import { all, active, done } from "./redux/filterSlice";
 import type React from "react";
-import { useAppDispatch } from "./hooks/hooks";
+import { useAppDispatch } from "./redux/hooks/hooks";
 
 const Filtrarion: React.FC = () => {
   const dispatch = useAppDispatch();
